@@ -1,34 +1,33 @@
 package com.codeforall.bootcamp.canifetes.simplegfx;
 
 import com.codeforall.simplegraphics.graphics.Canvas;
-import com.codeforall.simplegraphics.graphics.Rectangle;
-import com.codeforall.simplegraphics.pictures.Picture;
 
-public class  Main {
-    
+public class Main {
+
     public static void main(String[] args) {
-        
-        Canvas.setMaxX(510);
-        Canvas.setMaxY(510);
 
-        // Draw background grid rectangle
-        Rectangle gridLimits = new Rectangle(10, 10, 500, 500);
-        gridLimits.draw();
+        // Set up canvas size
+        Canvas.setMaxX(520);
+        Canvas.setMaxY(520);
 
-        // Draw rectangle
-        Rectangle square = new Rectangle(10, 10, 10, 10);
-        square.draw();
+        // Define grid properties
+        int gridStartX = 10;
+        int gridStartY = 10;
+        int cellSize = 10;      // Each cell is 10x10 pixels
+        int gridSize = 50;       // 50x50 grid of cells
 
-        // Draw background first (bottom layer)
-        // Picture: CLASS that already exists in the SimpleGFX library
-        // created by the library devs. It provides methods
-        // Picture background = new Picture(10, 10, "resources/stars-background.png");
-        // background.draw();
+        // Step 1: Draw the background grid
+        BackgroundGrid grid = new BackgroundGrid(gridStartX, gridStartY, gridSize, cellSize);
+        grid.draw();
 
-        // Draw spaceship on top
-        // Square spaceship = new Square(new Picture(10, 10, "resources/milenial-right.png"));
-        // MyKeyboard myKeyboard = new MyKeyboard();
-        // myKeyboard.setSpaceship(spaceship);
-        // myKeyboard.init();
+        // Step 2: Create the movable square (starts at top-left of grid)
+        Square square = new Square(gridStartX, gridStartY, cellSize, gridSize);
+
+        // Step 3: Set up keyboard controls
+        MyKeyboard myKeyboard = new MyKeyboard();
+        myKeyboard.setSquare(square);
+        myKeyboard.init();
+
+        System.out.println("Use arrow keys to move the green square!");
     }
 }

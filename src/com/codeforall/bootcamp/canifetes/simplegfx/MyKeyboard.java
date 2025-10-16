@@ -12,7 +12,7 @@ import java.awt.*;
 public class MyKeyboard implements KeyboardHandler {
     
     private Keyboard keyboard;
-    private Rectangle square;
+    private Square square;
     
     public void init() {
         
@@ -66,7 +66,7 @@ public class MyKeyboard implements KeyboardHandler {
     public void keyReleased(KeyboardEvent keyboardEvent) {
     }
 
-    public void setSquare(Rectangle square) {
+    public void setSquare(Square square) {
         this.square = square;
     }
 }
