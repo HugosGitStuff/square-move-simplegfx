@@ -6,55 +6,55 @@ import com.codeforall.simplegraphics.graphics.Color;
 public class Square {
 
     private Rectangle square;
-    private int cellSize;       // How big each cell is (10)
-    private int gridStartX;     // Where grid starts X (10)
-    private int gridStartY;     // Where grid starts Y (10)
-    private int gridSize;       // How many cells in grid (50)
+    private int cellSize; // cell size
+    private int gridStartX;     // grid start X
+    private int gridStartY;     // grid start Y
+    // private int gridSize;       // cells in grid
+    private int maxX;
+    private int maxY;
 
-    // Constructor
+    // constructor
     public Square(int startX, int startY, int cellSize, int gridSize) {
+
+        this.gridStartX = 10;     // grid starts at 10
+        this.gridStartY = 10;     // grid starts at 10
         this.cellSize = cellSize;
-        this.gridStartX = 10;     // Grid starts at 10
-        this.gridStartY = 10;     // Grid starts at 10
-        this.gridSize = gridSize;
+        // this.gridSize = gridSize;
 
-        // Create the square
+        // create square
         this.square = new Rectangle(startX, startY, cellSize, cellSize);
-        this.square.setColor(Color.GREEN);  // Make it green so you can see it
-        this.square.fill();  // Fill it with color
-    }
-
-    public void moveRight() {
-        // Calculate the rightmost position the square can be
-        int maxX = gridStartX + (gridSize * cellSize) - cellSize;
-
-        // Check if we can move right (one full cell)
-        if (square.getX() + cellSize <= maxX) {
-            square.translate(cellSize, 0);  // Move one cell right
-        }
+        this.square.setColor(Color.GREEN);  // square color
+        this.square.fill();  // fill with color
+        this.maxX = gridStartX + (gridSize * cellSize) - cellSize; // calculate rightmost position of square
+        this.maxY = gridStartY + (gridSize * cellSize) - cellSize; // calculate bottommost position of square
     }
 
     public void moveLeft() {
-        // Check if we can move left (don't go past left edge)
+        // check if moving left not passing edge
         if (square.getX() - cellSize >= gridStartX) {
-            square.translate(-cellSize, 0);  // Move one cell left
+            square.translate(-cellSize, 0);  // move one cell left
+        }
+    }
+    public void moveRight() {
+        // check if we can move right not passing edge
+        int currentRightX = square.getX() + cellSize;
+        if (currentRightX <= maxX) {
+            square.translate(cellSize, 0); // move one cell right
         }
     }
 
     public void moveUp() {
-        // Check if we can move up (don't go past top edge)
+        // check if moving up not passing top edge
         if (square.getY() - cellSize >= gridStartY) {
-            square.translate(0, -cellSize);  // Move one cell up
+            square.translate(0, -cellSize);  // move one cell up
         }
     }
 
     public void moveDown() {
-        // Calculate the bottommost position the square can be
-        int maxY = gridStartY + (gridSize * cellSize) - cellSize;
-
-        // Check if we can move down (one full cell)
-        if (square.getY() + cellSize <= maxY) {
-            square.translate(0, cellSize);  // Move one cell down
+        // check if we can move down one full cell
+        int currentBottomY = square.getY() + cellSize;
+        if (currentBottomY <= maxY) {
+            square.translate(0, cellSize);  // move one cell down
         }
     }
 }

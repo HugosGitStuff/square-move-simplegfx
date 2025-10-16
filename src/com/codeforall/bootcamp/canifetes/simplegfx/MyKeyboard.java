@@ -1,13 +1,9 @@
 package com.codeforall.bootcamp.canifetes.simplegfx;
 
-import com.codeforall.simplegraphics.graphics.Rectangle;
 import com.codeforall.simplegraphics.keyboard.Keyboard;
 import com.codeforall.simplegraphics.keyboard.KeyboardEvent;
 import com.codeforall.simplegraphics.keyboard.KeyboardEventType;
 import com.codeforall.simplegraphics.keyboard.KeyboardHandler;
-import com.codeforall.simplegraphics.pictures.Picture;
-
-import java.awt.*;
 
 public class MyKeyboard implements KeyboardHandler {
     
@@ -24,21 +20,21 @@ public class MyKeyboard implements KeyboardHandler {
         KeyboardEvent goUp = new KeyboardEvent();
         KeyboardEvent goDown = new KeyboardEvent();
 
-        //set the key to the event
-        //Right
+        //set event key
+        //right
         goRight.setKey(KeyboardEvent.KEY_RIGHT);
         goRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        // Left
+        // left
         goLeft.setKey(KeyboardEvent.KEY_LEFT);
         goLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        // Up
+        // up
         goUp.setKey(KeyboardEvent.KEY_UP);
         goUp.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        // Down
+        // down
         goDown.setKey(KeyboardEvent.KEY_DOWN);
         goDown.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         
-        //add event to the keyboard
+        //add keyboard event
         keyboard.addEventListener(goRight);
         keyboard.addEventListener(goLeft);
         keyboard.addEventListener(goUp);

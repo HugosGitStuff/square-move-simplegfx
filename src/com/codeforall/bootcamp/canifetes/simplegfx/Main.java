@@ -6,28 +6,26 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Set up canvas size
-        Canvas.setMaxX(520);
-        Canvas.setMaxY(520);
+        // canvas size
+        Canvas.setMaxX(510);
+        Canvas.setMaxY(510);
 
-        // Define grid properties
+        // defining grid properties
         int gridStartX = 10;
         int gridStartY = 10;
-        int cellSize = 10;      // Each cell is 10x10 pixels
-        int gridSize = 50;       // 50x50 grid of cells
+        int cellSize = 50;      // each cell in pixels
+        int gridSize = 10;       // grid of cells
 
-        // Step 1: Draw the background grid
+        // draw background grid
         BackgroundGrid grid = new BackgroundGrid(gridStartX, gridStartY, gridSize, cellSize);
         grid.draw();
 
-        // Step 2: Create the movable square (starts at top-left of grid)
+        // create movable square starts at gridStart
         Square square = new Square(gridStartX, gridStartY, cellSize, gridSize);
 
-        // Step 3: Set up keyboard controls
+        // keyboard controls
         MyKeyboard myKeyboard = new MyKeyboard();
         myKeyboard.setSquare(square);
         myKeyboard.init();
-
-        System.out.println("Use arrow keys to move the green square!");
     }
 }
