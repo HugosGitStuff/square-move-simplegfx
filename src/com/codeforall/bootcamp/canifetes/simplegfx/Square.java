@@ -12,7 +12,7 @@ public class Square {
 
     public Square(Rectangle square) {
         this.square = square;
-        this.currentPosition = "right";
+        this.currentPosition = "";
         this.square.draw();
     }
 
