@@ -1,14 +1,18 @@
 package com.codeforall.bootcamp.canifetes.simplegfx;
 
+import com.codeforall.simplegraphics.graphics.Rectangle;
 import com.codeforall.simplegraphics.keyboard.Keyboard;
 import com.codeforall.simplegraphics.keyboard.KeyboardEvent;
 import com.codeforall.simplegraphics.keyboard.KeyboardEventType;
 import com.codeforall.simplegraphics.keyboard.KeyboardHandler;
+import com.codeforall.simplegraphics.pictures.Picture;
+
+import java.awt.*;
 
 public class MyKeyboard implements KeyboardHandler {
     
     private Keyboard keyboard;
-    private Spaceship spaceship;
+    private Rectangle square;
     
     public void init() {
         
@@ -44,17 +48,17 @@ public class MyKeyboard implements KeyboardHandler {
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_RIGHT) {
-            System.out.println("go right");
-            spaceship.moveRight();
+            // System.out.println("go right");
+            square.moveRight();
         } else if(keyboardEvent.getKey() == KeyboardEvent.KEY_LEFT) {
-            System.out.println("go left");
-            spaceship.moveLeft();
+            // System.out.println("go left");
+            square.moveLeft();
         } else if (keyboardEvent.getKey() == KeyboardEvent.KEY_UP) {
-            System.out.println("go up");
-            spaceship.moveUp();
+            // System.out.println("go up");
+            square.moveUp();
         } else if (keyboardEvent.getKey() == KeyboardEvent.KEY_DOWN) {
-            System.out.println("go down");
-            spaceship.moveDown();
+            // System.out.println("go down");
+            square.moveDown();
         }
     }
 
@@ -62,7 +66,7 @@ public class MyKeyboard implements KeyboardHandler {
     public void keyReleased(KeyboardEvent keyboardEvent) {
     }
 
-    public void setSpaceship(Spaceship spaceship) {
-        this.spaceship = spaceship;
+    public void setSquare(Rectangle square) {
+        this.square = square;
     }
 }
